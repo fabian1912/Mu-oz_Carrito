@@ -1,0 +1,52 @@
+:root {
+  --verde: #1f4d36;
+  --verde-claro: #e8efe9;
+  --panela: #c98a2b;
+  --tinta: #1d241f;
+  --fondo: #faf8f3;
+  --rojo: #a63a2b;
+  --borde: #d9d5c8;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+:focus-visible { outline: 3px solid var(--panela); outline-offset: 2px; }
+
+.navbar { position: fixed; top: 0; left: 0; right: 0; height: 64px; z-index: 20; display: flex; align-items: center; justify-content: space-between; padding: 0 1.25rem; background: var(--verde); color: #fff; }
+.marca { font-size: 1.5rem; }
+.carrito-btn { position: relative; background: none; border: 0; color: #fff; cursor: pointer; padding: .5rem; }
+.contador { position: absolute; top: -2px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: var(--panela); color: #fff; font-size: .75rem; font-weight: 700; display: grid; place-items: center; }
+
+.catalogo { max-width: 1000px; margin: 0 auto; padding: 88px 1rem 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.tarjeta { background: #fff; border: 1px solid var(--borde); border-radius: 8px; padding: 1rem; display: flex; flex-direction: column; gap: .35rem; }
+.precio { font-size: 1.25rem; font-weight: 700; color: var(--verde); margin: 0; }
+.stock { margin: 0 0 .5rem; color: #5b635d; font-size: .9rem; }
+.fila { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+
+.cantidad { width: 72px; padding: .5rem; border: 1px solid var(--borde); border-radius: 6px; font-size: 1rem; text-align: center; }
+.btn { background: var(--verde); color: #fff; border: 0; border-radius: 6px; padding: .55rem 1rem; font-size: 1rem; cursor: pointer; }
+.btn:disabled { background: #aab3ac; cursor: not-allowed; }
+.btn-peligro { background: var(--rojo); }
+.btn-mini { width: 34px; height: 34px; border-radius: 6px; border: 1px solid var(--borde); background: #fff; font-size: 1.2rem; cursor: pointer; }
+.btn-quitar { background: none; border: 0; color: var(--rojo); text-decoration: underline; cursor: pointer; font-size: .9rem; }
+
+.velo { position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 30; }
+.panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: #fff; z-index: 40; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .25s; box-shadow: -4px 0 16px rgba(0,0,0,.15); }
+.panel.abierto { transform: none; }
+.panel-cab { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--verde-claro); }
+.lineas { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+.linea { padding: 1rem 1.25rem; border-bottom: 1px solid var(--borde); display: flex; flex-direction: column; gap: .5rem; }
+.linea-info { display: flex; justify-content: space-between; gap: .5rem; }
+.linea-info span { color: #5b635d; font-size: .9rem; }
+.subtotal { margin-left: auto; }
+.vacio { padding: 1.5rem 1.25rem; flex: 1; color: #5b635d; }
+.totales { padding: 1rem 1.25rem; border-top: 2px solid var(--verde); }
+.totales p { display: flex; justify-content: space-between; margin: .25rem 0; }
+.gran-total { font-size: 1.3rem; }
+
+.toasts { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); z-index: 60; display: flex; flex-direction: column; gap: .5rem; width: min(440px, calc(100% - 2rem)); }
+.toast { display: flex; align-items: center; gap: .75rem; background: var(--tinta); color: #fff; padding: .75rem 1rem; border-radius: 8px; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.toast p { margin: 0; flex: 1; }
+.toast-x { background: none; border: 0; color: inherit; font-size: 1.5rem; line-height: 1; cursor: pointer; }
+
+@media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
